@@ -2,7 +2,7 @@ import Home from "../src/Home/components/Home";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
-const Index = props => (
+const Index = (props) => (
   <div>
     <Head>
       <title>MERCI</title>
@@ -49,16 +49,14 @@ const Index = props => (
   </div>
 );
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   const res = await fetch("http://localhost:4000/api/message");
   const data = await res.json();
 
-  console.log(`Show data fetched. Count: ${data.length}`);
-  console.log(res.json());
   return {
     props: {
-      users: data
-    }
+      users: data,
+    },
   };
 };
 
