@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { Modal } from "antd";
+import { toast } from "react-toastify";
+import Router from "next/router";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -18,19 +20,23 @@ class NewsletterConponent extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
       },
-      body: JSON.stringify(values)
-    });
-    if (res.status == 200) {
-      Modal.success({
-        content: "Merci."
-      });
-    } else {
-      Modal.warning({
-        content: "Une erreur s'est produite. Veuillez réessayer plus tard"
-      });
-    }
+      body: JSON.stringify(values),
+    })
+      .then(() => {
+        Router.push("/");
+        toast.success("Message envoyé !");
+      })
+      .catch((errors) => res.status(400).json({ errors }));
+    // if (res.status === 200) {
+    //   Modal.success({
+    //     content: "Merci.",
+    //   });
+    // } else {
+    //   Modal.warning({
+    //     content: "Une erreur s'est produite. Veuillez réessayer plus tard",
+    //   });
   }
 
   render() {
@@ -51,10 +57,10 @@ class NewsletterConponent extends React.Component {
               email: Yup.string()
                 .email("L'email n'est pas valide")
                 .required("Nécessaire"),
-              message: Yup.string().required("Nécessaire")
+              message: Yup.string().required("Nécessaire"),
             })}
           >
-            {props => {
+            {(props) => {
               const {
                 values,
                 touched,
@@ -62,7 +68,7 @@ class NewsletterConponent extends React.Component {
                 isSubmitting,
                 handleChange,
                 handleBlur,
-                handleSubmit
+                handleSubmit,
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
@@ -119,11 +125,16 @@ class NewsletterConponent extends React.Component {
                         style={{
                           height: "auto",
                           width: "200px",
-                          backgroundColor: "green"
+                          backgroundColor: "green",
                         }}
                       >
                         submit
                       </div>
+                      <input
+                        class="favorite styled"
+                        type="button"
+                        value="Add to favorites"
+                      ></input>
                     </span>
                   </div>
                 </form>
@@ -146,7 +157,7 @@ const styles = {
     marginLeft: "25vw",
     boxShadow: "-1px 3px 6px #00000029",
     borderRadius: "33px",
-    opacity: 1
+    opacity: 1,
   },
   myContainerMobile: {
     width: "auto",
@@ -154,8 +165,8 @@ const styles = {
     marginLeft: "16px",
     background: "white",
     backgroundColor: "white",
-    paddingBottom: "40px"
-  }
+    paddingBottom: "40px",
+  },
 };
 
 export default class Newsletter extends React.Component {

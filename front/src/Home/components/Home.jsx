@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ToastContainer } from "react-toastify";
 
 const styles = {
   card: {},
@@ -20,6 +21,7 @@ export default class Home extends Component {
           margin: 0,
         }}
       >
+        <ToastContainer autoClose={3000} hideProgressBar />
         <div
           style={{
             display: "flex",
@@ -62,7 +64,6 @@ export default class Home extends Component {
             </button>
           </div>
         </div>
-
         <div
           style={{
             margin: "2% 20px",
@@ -86,16 +87,7 @@ export default class Home extends Component {
                 marginLeft: 5,
               }}
             >
-              <div
-                style={
-                  {
-                    // borderLeft: `3px #${Math.floor(
-                    //   Math.random() * 16777215
-                    // ).toString(16)} solid`,
-                    // marginLeft: 5,
-                  }
-                }
-              >
+              <div>
                 <div
                   style={{
                     display: "flex",
