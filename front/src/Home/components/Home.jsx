@@ -1,19 +1,8 @@
 import React, { Component } from "react";
 
 const styles = {
-  card: {
-    backgroundColor: "white",
-    width: "23vw",
-    // border: "1px solid black",
-    borderRadius: 3,
-    margin: "10px 20px",
-    backgroundColor: "#FDFDFD",
-    boxShadow: "1px 1px 12px #555",
-  },
-  pseudo_card: {
-    // textAlign: "center",
-  },
-  borderCard: {},
+  card: {},
+  pseudo_card: {},
 };
 
 export default class Home extends Component {
@@ -28,16 +17,48 @@ export default class Home extends Component {
       <div
         style={{
           backgroundColor: "rgb(226, 226, 226, 0.7)",
-          margin: "3%",
+          margin: 0,
         }}
       >
-        <div style={{ backgroundColor: "yellow", height: "40vh" }}>
-          <h1 style={{ textAlign: "center", fontFamily: "Roboto Condensed" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            padding: 10,
+            fontSize: 20,
+          }}
+        >
+          {users.length} Messages 🙏
+        </div>
+        <div
+          style={{
+            background: "red",
+            height: "40vh",
+            marginTop: 30,
+          }}
+        >
+          <h1
+            style={{
+              textAlign: "center",
+              fontFamily: "Roboto Condensed",
+              color: "lightgray",
+            }}
+          >
             Merci Personnel Soignant
           </h1>
           <div style={{ textAlign: "center" }}>
-            <button type="button" className="btn btn-primary">
-              Offrez un message d'encouragement
+            <button
+              type="button"
+              style={{
+                borderRadius: 10,
+                border: "white",
+                backgroundColor: "lightblue",
+                padding: 10,
+                fontWeight: "bold",
+                boxShadow: "1px 1px 12px black",
+              }}
+            >
+              Laissez un message d'encouragement
             </button>
           </div>
         </div>
@@ -51,14 +72,29 @@ export default class Home extends Component {
           }}
         >
           {users.map((user) => (
-            <div style={styles.card}>
+            <div
+              style={{
+                backgroundColor: "white",
+                width: "23vw",
+                borderRadius: 3,
+                margin: "10px 20px",
+                backgroundColor: "#FDFDFD",
+                boxShadow: "1px 1px 12px #555",
+                borderLeft: `5px #${Math.floor(
+                  Math.random() * 16777215
+                ).toString(16)} solid`,
+                marginLeft: 5,
+              }}
+            >
               <div
-                style={{
-                  borderLeft: `3px #${Math.floor(
-                    Math.random() * 16777215
-                  ).toString(16)} solid`,
-                  marginLeft: 5,
-                }}
+                style={
+                  {
+                    // borderLeft: `3px #${Math.floor(
+                    //   Math.random() * 16777215
+                    // ).toString(16)} solid`,
+                    // marginLeft: 5,
+                  }
+                }
               >
                 <div
                   style={{
@@ -72,12 +108,35 @@ export default class Home extends Component {
                   22/04/2020 à 13h53
                 </div>
                 <div style={{ padding: 20 }}>
-                  <h3 style={styles.pseudo_card}>{user.pseudo}</h3>
-                  <div>{user.message}</div>
+                  <h5 style={styles.pseudo_card}>{user.pseudo}</h5>
+                  <p>{user.message}</p>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div
+          style={{
+            backgroundColor: "#1C74F4",
+            padding: 20,
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          © Développé par{" "}
+          <a
+            style={{ textDecoration: "none", color: "white" }}
+            href="https://www.linkedin.com/in/yassine-elati/"
+          >
+            Yassine
+          </a>{" "}
+          &{" "}
+          <a
+            style={{ textDecoration: "none", color: "white" }}
+            href="https://www.linkedin.com/in/yamin-gherbi/"
+          >
+            Yamin{" "}
+          </a>
         </div>
       </div>
     );

@@ -43,14 +43,9 @@ export default class MyApp extends App {
             outline: none !important;
             outline-offset: none !important;
           }
-
           img {
             max-width: 100%;
             height: auto;
-          }
-          body {
-            background-color: white;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='79' height='79' viewBox='0 0 200 200'%3E%3Cpolygon fill='%23c1fab9' fill-opacity='0.46' points='100 0 0 100 100 100 100 200 200 100 200 0'/%3E%3C/svg%3E");
           }
         `}</style>
         <div id="outer-container">
