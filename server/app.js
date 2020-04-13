@@ -2,13 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const userRoutes = require("./router/user");
-const path = require("path");
 const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://covid_db:YbJpIu8r2z3YG2BO@cluster0-wq3dm.mongodb.net/test?retryWrites=true&w=majority",
-
+    "mongodb+srv://covid_db:YbJpIu8r2z3YG2BO@cluster0-wq3dm.mongodb.net/covid_message?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))

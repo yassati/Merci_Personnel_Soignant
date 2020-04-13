@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 exports.sendMessage = (req, res, next) => {
-  delete req.body._id;
   const user = new User({
     email: req.body.email,
     pseudo: req.body.pseudo,
