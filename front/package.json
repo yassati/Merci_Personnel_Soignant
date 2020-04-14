@@ -26,6 +26,7 @@
     "next": "^9.3.4",
     "next-images": "^1.4.0",
     "react": "^16.13.1",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.13.1",
     "react-share": "^4.1.0",
     "react-toastify": "^5.5.0",

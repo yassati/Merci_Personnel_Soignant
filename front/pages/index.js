@@ -39,7 +39,7 @@ const Index = props => (
         height: auto;
       }
     `}</style>
-    <Home users={props.props.users} />
+    <Home users={props.props.users} isMobile={props.isMobile} />
   </div>
 );
 

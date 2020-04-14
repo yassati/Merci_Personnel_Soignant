@@ -100,7 +100,7 @@ class NewsletterConponent extends React.Component {
                     <input
                       type="text"
                       id="email"
-                      placeholder="email"
+                      placeholder="Email"
                       style={styles.input}
                       value={values.email}
                       onChange={handleChange}
@@ -124,7 +124,7 @@ class NewsletterConponent extends React.Component {
                       type="text"
                       id="message"
                       style={styles.textarea}
-                      placeholder="message"
+                      placeholder="Message"
                       value={values.message}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -168,12 +168,12 @@ const styles = {
     opacity: 1
   },
   myContainerMobile: {
+    backgroundColor: "white",
     width: "auto",
     marginRight: "16px",
     marginLeft: "16px",
-    background: "white",
-    backgroundColor: "white",
-    paddingBottom: "40px"
+    paddingBottom: "40px",
+    paddingTop: "40px"
   },
   buttonSubmit: {
     height: 30,
@@ -185,6 +185,7 @@ const styles = {
     border: "none",
     borderBottom: "3px solid #3B7210",
     height: 40,
+    width: "40%",
     margin: 10
   },
   textarea: {
@@ -205,10 +206,13 @@ export default class Newsletter extends React.Component {
   }
 
   render() {
+    const styleContainer = this.props.isMobile
+      ? styles.myContainerMobile
+      : styles.myContainerDesktop;
     return (
       <div>
         <div style={{ height: "12vh" }} />
-        <div style={styles.myContainerDesktop}>
+        <div style={styleContainer}>
           <NewsletterConponent />
         </div>
       </div>

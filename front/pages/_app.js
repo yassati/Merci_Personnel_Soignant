@@ -6,7 +6,24 @@ import "react-toastify/dist/ReactToastify.css";
 export default class MyApp extends App {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isMobile: null
+    };
+
+    this.updatePredicate = this.updatePredicate.bind(this);
+  }
+  componentDidMount() {
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate() {
+    console.log("window.innerWidth", window.innerWidth);
+    this.setState({ isMobile: window.innerWidth < 760 });
   }
   render() {
     const { Component, pageProps } = this.props;
@@ -54,7 +71,7 @@ export default class MyApp extends App {
         `}</style>
         <div id="outer-container">
           <main id="page-wrap">
-            <Component {...pageProps} />
+            <Component {...pageProps} isMobile={this.state.isMobile} />
           </main>
         </div>
       </div>
