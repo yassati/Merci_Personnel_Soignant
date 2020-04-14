@@ -1,53 +1,16 @@
 import React, { Component } from "react";
 import { ToastContainer } from "react-toastify";
 import {
-  FacebookShareCount,
-  PinterestShareCount,
-  VKShareCount,
-  OKShareCount,
-  RedditShareCount,
-  TumblrShareCount,
   FacebookShareButton,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
   LinkedinShareButton,
   TwitterShareButton,
-  PinterestShareButton,
-  VKShareButton,
-  OKShareButton,
-  TelegramShareButton,
   WhatsappShareButton,
-  RedditShareButton,
-  EmailShareButton,
-  TumblrShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  ViberShareButton,
-  WorkplaceShareButton,
-  LineShareButton,
-  WeiboShareButton,
-  PocketShareButton,
-  InstapaperShareButton,
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
-  PinterestIcon,
-  VKIcon,
-  OKIcon,
-  TelegramIcon,
-  WhatsappIcon,
-  RedditIcon,
-  TumblrIcon,
-  MailruIcon,
-  EmailIcon,
-  LivejournalIcon,
-  ViberIcon,
-  WorkplaceIcon,
-  LineIcon,
-  PocketIcon,
-  InstapaperIcon,
-  WeiboIcon
+  WhatsappIcon
 } from "react-share";
+import Background from "../../assets/images/background.png";
 
 const styles = {
   card: {},
@@ -85,7 +48,17 @@ export default class Home extends Component {
         </div>
         <div
           style={{
-            background: "red",
+            display: "flex",
+            justifyContent: "flex-start",
+            padding: 10,
+            fontSize: 20
+          }}
+        >
+          {users.length} Messages 🙏
+        </div>
+        <div
+          style={{
+            backgroundImage: `url(${Background})`,
             height: "40vh",
             marginTop: 30
           }}
@@ -122,9 +95,9 @@ export default class Home extends Component {
                 margin: "10px 20px",
                 backgroundColor: "#FDFDFD",
                 boxShadow: "1px 1px 12px #555",
-                borderLeft: `5px #${Math.floor(
-                  Math.random() * 16777215
-                ).toString(16)} solid`,
+                borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
+                  .toString(16)
+                  .substr(1, 6)} solid`,
                 marginLeft: 5
               }}
               key={user.pseudo}
