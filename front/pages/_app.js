@@ -43,12 +43,9 @@ export default class MyApp extends App {
             outline: none !important;
             outline-offset: none !important;
           }
-
           img {
             max-width: 100%;
             height: auto;
-          }
-          body {
           }
         `}</style>
         <div id="outer-container">

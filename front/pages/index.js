@@ -38,8 +38,6 @@ const Index = props => (
         max-width: 100%;
         height: auto;
       }
-      body {
-      }
     `}</style>
     <Home users={props.props.users} />
   </div>
@@ -49,8 +47,6 @@ Index.getInitialProps = async function() {
   const res = await fetch("http://localhost:4000/api/message");
   const data = await res.json();
 
-  console.log(`Show data fetched. Count: ${data.length}`);
-  console.log(res.json());
   return {
     props: {
       users: data
