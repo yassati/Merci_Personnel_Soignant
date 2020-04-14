@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { Modal } from "antd";
 import { toast } from "react-toastify";
-import Router from "next/router";
+import Router, { withRouter } from "next/router";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -20,15 +20,15 @@ class NewsletterConponent extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
       },
-      body: JSON.stringify(values)
+      body: JSON.stringify(values),
     })
       .then(() => {
         Router.push("/");
         toast.success("Message envoyé !");
       })
-      .catch(errors => res.status(400).json({ errors }));
+      .catch((errors) => res.status(400).json({ errors }));
   }
 
   render() {
@@ -49,10 +49,10 @@ class NewsletterConponent extends React.Component {
               email: Yup.string()
                 .email("L'email n'est pas valide")
                 .required("Nécessaire"),
-              message: Yup.string().required("Nécessaire")
+              message: Yup.string().required("Nécessaire"),
             })}
           >
-            {props => {
+            {(props) => {
               const {
                 values,
                 touched,
@@ -60,60 +60,84 @@ class NewsletterConponent extends React.Component {
                 isSubmitting,
                 handleChange,
                 handleBlur,
-                handleSubmit
+                handleSubmit,
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    id="pseudo"
-                    placeholder="Pseudo"
-                    style={{ marginBottom: "3vh" }}
-                    value={values.pseudo}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    autocomplete="off"
-                    className={
-                      errors.pseudo && touched.pseudo
-                        ? "ant-input ant-input-lg error"
-                        : "ant-input ant-input-lg"
-                    }
-                  ></input>
-                  <input
-                    type="text"
-                    id="email"
-                    placeholder="email"
-                    style={{ marginBottom: "3vh" }}
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.email && touched.email
-                        ? "ant-input ant-input-lg error"
-                        : "ant-input ant-input-lg"
-                    }
-                  ></input>
-                  <input
-                    type="text"
-                    id="message"
-                    placeholder="message"
-                    style={{ marginBottom: "3vh" }}
-                    value={values.message}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.message && touched.message
-                        ? "ant-input ant-input-lg error"
-                        : "ant-input ant-input-lg"
-                    }
-                  ></input>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "40% 40%",
+                      gridGap: 25,
+                      justifyContent: "center",
+                      marginBottom: 25,
+                    }}
+                  >
+                    <input
+                      type="text"
+                      id="pseudo"
+                      placeholder="Pseudo"
+                      style={styles.input}
+                      value={values.pseudo}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      autocomplete="off"
+                      className={
+                        errors.pseudo && touched.pseudo
+                          ? "ant-input ant-input-lg error"
+                          : "ant-input ant-input-lg"
+                      }
+                    ></input>
+                    <input
+                      type="text"
+                      id="email"
+                      placeholder="email"
+                      style={styles.input}
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.email && touched.email
+                          ? "ant-input ant-input-lg error"
+                          : "ant-input ant-input-lg"
+                      }
+                    ></input>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginBottom: 30,
+                      height: "20vh",
+                    }}
+                  >
+                    <textarea
+                      type="text"
+                      id="message"
+                      style={styles.textarea}
+                      placeholder="message"
+                      value={values.message}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.message && touched.message
+                          ? "ant-input ant-input-lg error"
+                          : "ant-input ant-input-lg"
+                      }
+                    ></textarea>
+                  </div>
                   <div className={"col text-center"}>
                     <span
                       type="submit"
                       onClick={handleSubmit}
                       disabled={isSubmitting}
                     >
-                      <div style={styles.buttonSubmit}>submit</div>
+                      <div
+                        style={{ width: "10vw" }}
+                        className="btn btn-success"
+                      >
+                        Envoyer
+                      </div>
                     </span>
                   </div>
                 </form>
@@ -132,11 +156,10 @@ const styles = {
     marginBottom: "12vh",
     width: "auto",
     marginRight: "25vw",
-    backgroundColor: "white",
     marginLeft: "25vw",
     boxShadow: "-1px 3px 6px #00000029",
     borderRadius: "33px",
-    opacity: 1
+    opacity: 1,
   },
   myContainerMobile: {
     width: "auto",
@@ -144,13 +167,25 @@ const styles = {
     marginLeft: "16px",
     background: "white",
     backgroundColor: "white",
-    paddingBottom: "40px"
+    paddingBottom: "40px",
   },
   buttonSubmit: {
-    height: "auto",
+    height: 30,
+    borderRadius: 10,
     width: "200px",
-    backgroundColor: "green"
-  }
+    backgroundColor: "#3B7210",
+  },
+  input: {
+    border: "none",
+    borderBottom: "3px solid #3B7210",
+    height: 40,
+  },
+  textarea: {
+    border: "none",
+    borderBottom: "3px solid #3B7210",
+    width: "85%",
+    resize: "none",
+  },
 };
 
 export default class Newsletter extends React.Component {
