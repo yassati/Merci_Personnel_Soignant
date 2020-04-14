@@ -9,13 +9,13 @@ import {
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
-  WhatsappIcon,
+  WhatsappIcon
 } from "react-share";
 import Background from "../../assets/images/team-doctor.jpg";
 
 const styles = {
   card: {},
-  pseudo_card: {},
+  pseudo_card: {}
 };
 
 export default class Home extends Component {
@@ -23,7 +23,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      postsPerPage: 9,
+      postsPerPage: 9
     };
   }
 
@@ -32,7 +32,7 @@ export default class Home extends Component {
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
-    const paginate = (pageNumber) => this.setState({ currentPage: pageNumber });
+    const paginate = pageNumber => this.setState({ currentPage: pageNumber });
 
     const shareUrl = "http://www.merci.fr";
     const title = "Merci";
@@ -41,7 +41,7 @@ export default class Home extends Component {
       <div
         style={{
           backgroundColor: "rgb(226, 226, 226, 0.3)",
-          margin: 0,
+          margin: 0
         }}
       >
         <ToastContainer autoClose={3000} hideProgressBar />
@@ -53,20 +53,20 @@ export default class Home extends Component {
             display: "grid",
             gridTemplateColumns: "100%",
             alignItems: "center",
-            justifyItems: "center",
+            justifyItems: "center"
           }}
         >
           <div className="bloc_header_title">
             <h1
               style={{
-                textAlign: "center",
+                textAlign: "center"
               }}
             >
               Merci Personnel Soignant
             </h1>
             <p style={{ textAlign: "center" }}>
-              Une initiative pour valoriser l'effort du cadre médical <br></br>
-              et établir une connexion solidaire entre nous en ces temps
+              Une initiative pour valoriser l'effort du cadre médical et établir
+              <br></br> une connexion solidaire entre nous en ces temps
               difficiles.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default class Home extends Component {
             fontSize: 20,
             fontFamily: "Roboto Condensed",
             color: "white",
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            backgroundColor: "rgba(0, 0, 0, 0.7)"
           }}
         >
           {users.length} Messages 🙏
@@ -103,13 +103,13 @@ export default class Home extends Component {
           //   justifyContent: "center",
           // }}
         >
-          {currentPosts.map((user) => (
+          {currentPosts.map(user => (
             <div
               className="card_message"
               style={{
                 borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
                   .toString(16)
-                  .substr(1, 6)} solid`,
+                  .substr(1, 6)} solid`
               }}
               key={user.pseudo}
             >
@@ -120,7 +120,7 @@ export default class Home extends Component {
                     justifyContent: "flex-end",
                     padding: 5,
                     color: "#D3D5D3",
-                    fontSize: 12,
+                    fontSize: 12
                   }}
                 >
                   {user.date}
@@ -135,7 +135,7 @@ export default class Home extends Component {
                     gridTemplateColumns: "13% 13% 13% 13%",
                     justifyContent: "end",
                     marginRight: 10,
-                    marginBottom: 10,
+                    marginBottom: 10
                   }}
                 >
                   <div className="Demo__some-network">
@@ -192,7 +192,7 @@ export default class Home extends Component {
             padding: 20,
             color: "white",
             textAlign: "center",
-            fontFamily: "Roboto Condensed",
+            fontFamily: "Roboto Condensed"
           }}
         >
           © Développé par{" "}
