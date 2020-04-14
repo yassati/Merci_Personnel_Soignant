@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 
 const styles = {
   card: {},
-  pseudo_card: {},
+  pseudo_card: {}
 };
 
 export default class Home extends Component {
@@ -18,7 +18,7 @@ export default class Home extends Component {
       <div
         style={{
           backgroundColor: "rgb(226, 226, 226, 0.7)",
-          margin: 0,
+          margin: 0
         }}
       >
         <ToastContainer autoClose={3000} hideProgressBar />
@@ -27,7 +27,7 @@ export default class Home extends Component {
             display: "flex",
             justifyContent: "flex-end",
             padding: 10,
-            fontSize: 20,
+            fontSize: 20
           }}
         >
           {users.length} Messages 🙏
@@ -36,14 +36,14 @@ export default class Home extends Component {
           style={{
             background: "red",
             height: "40vh",
-            marginTop: 30,
+            marginTop: 30
           }}
         >
           <h1
             style={{
               textAlign: "center",
               fontFamily: "Roboto Condensed",
-              color: "lightgray",
+              color: "lightgray"
             }}
           >
             Merci Personnel Soignant
@@ -57,7 +57,7 @@ export default class Home extends Component {
                 backgroundColor: "lightblue",
                 padding: 10,
                 fontWeight: "bold",
-                boxShadow: "1px 1px 12px black",
+                boxShadow: "1px 1px 12px black"
               }}
             >
               Laissez un message d'encouragement
@@ -69,10 +69,10 @@ export default class Home extends Component {
             margin: "2% 20px",
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
+            justifyContent: "center"
           }}
         >
-          {users.map((user) => (
+          {users.map(user => (
             <div
               style={{
                 backgroundColor: "white",
@@ -84,8 +84,9 @@ export default class Home extends Component {
                 borderLeft: `5px #${Math.floor(
                   Math.random() * 16777215
                 ).toString(16)} solid`,
-                marginLeft: 5,
+                marginLeft: 5
               }}
+              key={user.pseudo}
             >
               <div>
                 <div
@@ -94,7 +95,7 @@ export default class Home extends Component {
                     justifyContent: "flex-end",
                     padding: 5,
                     color: "#D3D5D3",
-                    fontSize: 12,
+                    fontSize: 12
                   }}
                 >
                   22/04/2020 à 13h53
@@ -112,7 +113,7 @@ export default class Home extends Component {
             backgroundColor: "#1C74F4",
             padding: 20,
             color: "white",
-            textAlign: "center",
+            textAlign: "center"
           }}
         >
           © Développé par{" "}
