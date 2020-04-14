@@ -2,9 +2,9 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
-import { Modal } from "antd";
 import { toast } from "react-toastify";
 import Router, { withRouter } from "next/router";
+import Banniere_message from "../../assets/images/banniere_message.png";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -33,13 +33,24 @@ class NewsletterConponent extends React.Component {
 
   render() {
     return (
-      <div style={{ padding: "10%" }}>
+      <div style={{ padding: "5%" }}>
         <style jsx>{`
           .error {
             border-color: red;
           }
         `}</style>
-        <h4>Offrez un message d'encouragement au personnel de santé !</h4>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 15
+          }}
+        >
+          <img src={Banniere_message} width="30%" alt="banniere_message" />
+        </div>
+        <h4 style={{ textAlign: "center", margin: "0 10%" }}>
+          Offrez un message d'encouragement au personnel de santé !
+        </h4>
         <div style={{ marginTop: "6vh" }}>
           <Formik
             initialValues={{ pseudo: "", email: "", message: "" }}
@@ -66,11 +77,9 @@ class NewsletterConponent extends React.Component {
                 <form onSubmit={handleSubmit}>
                   <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "40% 40%",
-                      gridGap: 25,
+                      display: "flex",
                       justifyContent: "center",
-                      marginBottom: 25
+                      flexWrap: "wrap"
                     }}
                   >
                     <input
@@ -81,7 +90,7 @@ class NewsletterConponent extends React.Component {
                       value={values.pseudo}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      autocomplete="off"
+                      autoComplete="off"
                       className={
                         errors.pseudo && touched.pseudo
                           ? "ant-input ant-input-lg error"
@@ -132,10 +141,7 @@ class NewsletterConponent extends React.Component {
                       onClick={handleSubmit}
                       disabled={isSubmitting}
                     >
-                      <div
-                        style={{ width: "10vw" }}
-                        className="btn btn-success"
-                      >
+                      <div style={{}} className="btn btn-success">
                         Envoyer
                       </div>
                     </span>
@@ -172,13 +178,14 @@ const styles = {
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
-    width: "200px",
+    // width: "200px",
     backgroundColor: "#3B7210"
   },
   input: {
     border: "none",
     borderBottom: "3px solid #3B7210",
-    height: 40
+    height: 40,
+    margin: 10
   },
   textarea: {
     border: "none",
