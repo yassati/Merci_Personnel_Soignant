@@ -2,9 +2,9 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
-import { Modal } from "antd";
 import { toast } from "react-toastify";
 import Router, { withRouter } from "next/router";
+import Banniere_message from "../../assets/images/banniere_message.png";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -20,26 +20,37 @@ class NewsletterConponent extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "application/json"
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
       .then(() => {
         Router.push("/");
         toast.success("Message envoyé !");
       })
-      .catch((errors) => res.status(400).json({ errors }));
+      .catch(errors => res.status(400).json({ errors }));
   }
 
   render() {
     return (
-      <div style={{ padding: "10%" }}>
+      <div style={{ padding: "5%" }}>
         <style jsx>{`
           .error {
             border-color: red;
           }
         `}</style>
-        <h4>Offrez un message d'encouragement au personnel de santé !</h4>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 15
+          }}
+        >
+          <img src={Banniere_message} width="30%" alt="banniere_message" />
+        </div>
+        <h4 style={{ textAlign: "center", margin: "0 10%" }}>
+          Offrez un message d'encouragement au personnel de santé !
+        </h4>
         <div style={{ marginTop: "6vh" }}>
           <Formik
             initialValues={{ pseudo: "", email: "", message: "" }}
@@ -49,10 +60,10 @@ class NewsletterConponent extends React.Component {
               email: Yup.string()
                 .email("L'email n'est pas valide")
                 .required("Nécessaire"),
-              message: Yup.string().required("Nécessaire"),
+              message: Yup.string().required("Nécessaire")
             })}
           >
-            {(props) => {
+            {props => {
               const {
                 values,
                 touched,
@@ -60,17 +71,15 @@ class NewsletterConponent extends React.Component {
                 isSubmitting,
                 handleChange,
                 handleBlur,
-                handleSubmit,
+                handleSubmit
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
                   <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "40% 40%",
-                      gridGap: 25,
+                      display: "flex",
                       justifyContent: "center",
-                      marginBottom: 25,
+                      flexWrap: "wrap"
                     }}
                   >
                     <input
@@ -81,7 +90,7 @@ class NewsletterConponent extends React.Component {
                       value={values.pseudo}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      autocomplete="off"
+                      autoComplete="off"
                       className={
                         errors.pseudo && touched.pseudo
                           ? "ant-input ant-input-lg error"
@@ -108,7 +117,7 @@ class NewsletterConponent extends React.Component {
                       display: "flex",
                       justifyContent: "center",
                       marginBottom: 30,
-                      height: "20vh",
+                      height: "20vh"
                     }}
                   >
                     <textarea
@@ -132,10 +141,7 @@ class NewsletterConponent extends React.Component {
                       onClick={handleSubmit}
                       disabled={isSubmitting}
                     >
-                      <div
-                        style={{ width: "10vw" }}
-                        className="btn btn-success"
-                      >
+                      <div style={{}} className="btn btn-success">
                         Envoyer
                       </div>
                     </span>
@@ -159,7 +165,7 @@ const styles = {
     marginLeft: "25vw",
     boxShadow: "-1px 3px 6px #00000029",
     borderRadius: "33px",
-    opacity: 1,
+    opacity: 1
   },
   myContainerMobile: {
     width: "auto",
@@ -167,25 +173,26 @@ const styles = {
     marginLeft: "16px",
     background: "white",
     backgroundColor: "white",
-    paddingBottom: "40px",
+    paddingBottom: "40px"
   },
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
-    width: "200px",
-    backgroundColor: "#3B7210",
+    // width: "200px",
+    backgroundColor: "#3B7210"
   },
   input: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     height: 40,
+    margin: 10
   },
   textarea: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     width: "85%",
-    resize: "none",
-  },
+    resize: "none"
+  }
 };
 
 export default class Newsletter extends React.Component {
