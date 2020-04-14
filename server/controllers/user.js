@@ -1,11 +1,15 @@
+const moment = require("moment");
+moment.locale("fr");
 const User = require("../models/User");
+const date = moment().format("Do MMMM YYYY, h:mm:ss a");
 
-exports.sendMessage = (req, res, next) => {
+exports.sendMessage = (req, res) => {
   delete req.body._id;
   const user = new User({
     email: req.body.email,
     pseudo: req.body.pseudo,
     message: req.body.message,
+    date: date,
   });
   user
     .save()

@@ -29,14 +29,6 @@ class NewsletterConponent extends React.Component {
         toast.success("Message envoyé !");
       })
       .catch((errors) => res.status(400).json({ errors }));
-    // if (res.status === 200) {
-    //   Modal.success({
-    //     content: "Merci.",
-    //   });
-    // } else {
-    //   Modal.warning({
-    //     content: "Une erreur s'est produite. Veuillez réessayer plus tard",
-    //   });
   }
 
   render() {
@@ -121,20 +113,7 @@ class NewsletterConponent extends React.Component {
                       onClick={handleSubmit}
                       disabled={isSubmitting}
                     >
-                      <div
-                        style={{
-                          height: "auto",
-                          width: "200px",
-                          backgroundColor: "green",
-                        }}
-                      >
-                        submit
-                      </div>
-                      <input
-                        class="favorite styled"
-                        type="button"
-                        value="Add to favorites"
-                      ></input>
+                      <div style={styles.buttonSubmit}>submit</div>
                     </span>
                   </div>
                 </form>
@@ -166,6 +145,11 @@ const styles = {
     background: "white",
     backgroundColor: "white",
     paddingBottom: "40px",
+  },
+  buttonSubmit: {
+    height: "auto",
+    width: "200px",
+    backgroundColor: "green",
   },
 };
 

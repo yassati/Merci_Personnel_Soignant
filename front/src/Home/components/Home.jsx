@@ -97,7 +97,7 @@ export default class Home extends Component {
                     fontSize: 12,
                   }}
                 >
-                  22/04/2020 à 13h53
+                  {user.date}
                 </div>
                 <div style={{ padding: 20 }}>
                   <h5 style={styles.pseudo_card}>{user.pseudo}</h5>
