@@ -149,12 +149,9 @@ export default class Home extends Component {
                   style={{
                     display: "grid",
                     gridTemplateColumns: "13% 13% 13% 13%",
+                    justifyContent: "end",
                     marginRight: 10,
                     marginBottom: 10,
-                    justifyItems: "end",
-                    justifyContent: "end",
-                    alignContent: "end",
-                    alignItems: "end",
                   }}
                 >
                   <div className="Demo__some-network">
