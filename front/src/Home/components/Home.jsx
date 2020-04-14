@@ -9,13 +9,13 @@ import {
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
-  WhatsappIcon
+  WhatsappIcon,
 } from "react-share";
 import Background from "../../assets/images/team-doctor.jpg";
 
 const styles = {
   card: {},
-  pseudo_card: {}
+  pseudo_card: {},
 };
 
 export default class Home extends Component {
@@ -23,7 +23,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      postsPerPage: 9
+      postsPerPage: 9,
     };
   }
 
@@ -32,7 +32,7 @@ export default class Home extends Component {
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
-    const paginate = pageNumber => this.setState({ currentPage: pageNumber });
+    const paginate = (pageNumber) => this.setState({ currentPage: pageNumber });
 
     const shareUrl = "http://www.merci.fr";
     const title = "Merci";
@@ -41,7 +41,7 @@ export default class Home extends Component {
       <div
         style={{
           backgroundColor: "rgb(226, 226, 226, 0.3)",
-          margin: 0
+          margin: 0,
         }}
       >
         <ToastContainer autoClose={3000} hideProgressBar />
@@ -49,26 +49,17 @@ export default class Home extends Component {
           style={{
             backgroundImage: `url(${Background})`,
             backgroundSize: "cover",
-            height: "40vh",
-            // marginTop: 30,
+            padding: 30,
             display: "grid",
             gridTemplateColumns: "100%",
             alignItems: "center",
-            justifyItems: "center"
+            justifyItems: "center",
           }}
         >
-          <div
-            style={{
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-              borderRadius: 10,
-              padding: 10,
-              color: "white",
-              fontFamily: "Roboto Condensed"
-            }}
-          >
+          <div className="bloc_header_title">
             <h1
               style={{
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Merci Personnel Soignant
@@ -98,33 +89,27 @@ export default class Home extends Component {
             fontSize: 20,
             fontFamily: "Roboto Condensed",
             color: "white",
-            backgroundColor: "rgba(0, 0, 0, 0.7)"
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
           }}
         >
           {users.length} Messages 🙏
         </div>
         <div
-          style={{
-            margin: "2% 20px",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center"
-          }}
+          className="container_message_card"
+          // style={{
+          //   margin: "2% 20px",
+          //   display: "flex",
+          //   flexWrap: "wrap",
+          //   justifyContent: "center",
+          // }}
         >
-          {currentPosts.map(user => (
+          {currentPosts.map((user) => (
             <div
+              className="card_message"
               style={{
-                backgroundColor: "white",
-                width: "23vw",
-                borderRadius: 3,
-                margin: "10px 20px",
-                backgroundColor: "#FDFDFD",
-                boxShadow: "1px 1px 12px #555",
                 borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
                   .toString(16)
                   .substr(1, 6)} solid`,
-                marginLeft: 5,
-                fontFamily: "Roboto Condensed"
               }}
               key={user.pseudo}
             >
@@ -135,7 +120,7 @@ export default class Home extends Component {
                     justifyContent: "flex-end",
                     padding: 5,
                     color: "#D3D5D3",
-                    fontSize: 12
+                    fontSize: 12,
                   }}
                 >
                   {user.date}
@@ -150,7 +135,7 @@ export default class Home extends Component {
                     gridTemplateColumns: "13% 13% 13% 13%",
                     justifyContent: "end",
                     marginRight: 10,
-                    marginBottom: 10
+                    marginBottom: 10,
                   }}
                 >
                   <div className="Demo__some-network">
@@ -193,6 +178,8 @@ export default class Home extends Component {
               </div>
             </div>
           ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <Pagination
             postsPerPage={this.state.postsPerPage}
             totalPosts={users.length}
@@ -205,7 +192,7 @@ export default class Home extends Component {
             padding: 20,
             color: "white",
             textAlign: "center",
-            fontFamily: "Roboto Condensed"
+            fontFamily: "Roboto Condensed",
           }}
         >
           © Développé par{" "}

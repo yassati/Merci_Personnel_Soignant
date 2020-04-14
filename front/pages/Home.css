@@ -1,0 +1,53 @@
+.bloc_header_title {
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  font-family: "Roboto Condensed";
+}
+.container_message_card {
+  margin: 2% 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card_message {
+  background-color: white;
+  /* width: 23vw; */
+  border-radius: 3px;
+  margin: 10px 20px;
+  background-color: #fdfdfd;
+  box-shadow: "1px 1px 12px #555";
+  margin-left: 5px;
+  font-family: "Roboto Condensed";
+}
+
+@media screen and (min-width: 100px) {
+  .bloc_header_title {
+    width: 100%;
+  }
+  .container_message_card {
+    display: "none";
+  }
+  .card_message {
+    width: 100%;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .card_message {
+    width: 45%;
+    /* margin: 20px auto; */
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .card_message {
+    width: 23vw;
+    margin: 20px 20px;
+    /* margin: 20px auto; */
+  }
+}
