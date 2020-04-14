@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { Modal } from "antd";
+import { toast } from "react-toastify";
+import Router from "next/router";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -21,16 +23,12 @@ class NewsletterConponent extends React.Component {
         Accept: "application/json"
       },
       body: JSON.stringify(values)
-    });
-    if (res.status == 200) {
-      Modal.success({
-        content: "Merci."
-      });
-    } else {
-      Modal.warning({
-        content: "Une erreur s'est produite. Veuillez réessayer plus tard"
-      });
-    }
+    })
+      .then(() => {
+        Router.push("/");
+        toast.success("Message envoyé !");
+      })
+      .catch(errors => res.status(400).json({ errors }));
   }
 
   render() {
@@ -115,15 +113,7 @@ class NewsletterConponent extends React.Component {
                       onClick={handleSubmit}
                       disabled={isSubmitting}
                     >
-                      <div
-                        style={{
-                          height: "auto",
-                          width: "200px",
-                          backgroundColor: "green"
-                        }}
-                      >
-                        submit
-                      </div>
+                      <div style={styles.buttonSubmit}>submit</div>
                     </span>
                   </div>
                 </form>
@@ -155,6 +145,11 @@ const styles = {
     background: "white",
     backgroundColor: "white",
     paddingBottom: "40px"
+  },
+  buttonSubmit: {
+    height: "auto",
+    width: "200px",
+    backgroundColor: "green"
   }
 };
 
