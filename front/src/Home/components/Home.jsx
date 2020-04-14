@@ -73,7 +73,7 @@ export default class Home extends Component {
             Merci Personnel Soignant
           </h1>
           <div style={{ textAlign: "center" }}>
-            <a class="btn btn-primary" href="/message" role="button">
+            <a className="btn btn-primary" href="/message" role="button">
               Laissez un message d'encouragement
             </a>
           </div>
@@ -118,41 +118,51 @@ export default class Home extends Component {
                   <h5 style={styles.pseudo_card}>{user.pseudo}</h5>
                   <p>{user.message}</p>
                 </div>
-                <div className="Demo__some-network">
-                  <FacebookShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <FacebookIcon size={32} round />
-                  </FacebookShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <TwitterShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <TwitterIcon size={32} round />
-                  </TwitterShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <LinkedinShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <LinkedinIcon size={32} round />
-                  </LinkedinShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <WhatsappShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <WhatsappIcon size={32} round />
-                  </WhatsappShareButton>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "13% 13% 13% 13%",
+                    justifyContent: "end",
+                    marginRight: 10,
+                    marginBottom: 10
+                  }}
+                >
+                  <div className="Demo__some-network">
+                    <FacebookShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <TwitterShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <LinkedinShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <WhatsappShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <WhatsappIcon size={32} round />
+                    </WhatsappShareButton>
+                  </div>
                 </div>
               </div>
             </div>
