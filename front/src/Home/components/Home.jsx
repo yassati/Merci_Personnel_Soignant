@@ -1,5 +1,53 @@
 import React, { Component } from "react";
 import { ToastContainer } from "react-toastify";
+import {
+  FacebookShareCount,
+  PinterestShareCount,
+  VKShareCount,
+  OKShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  FacebookShareButton,
+  FacebookMessengerShareButton,
+  FacebookMessengerIcon,
+  LinkedinShareButton,
+  TwitterShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  RedditShareButton,
+  EmailShareButton,
+  TumblrShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  ViberShareButton,
+  WorkplaceShareButton,
+  LineShareButton,
+  WeiboShareButton,
+  PocketShareButton,
+  InstapaperShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  VKIcon,
+  OKIcon,
+  TelegramIcon,
+  WhatsappIcon,
+  RedditIcon,
+  TumblrIcon,
+  MailruIcon,
+  EmailIcon,
+  LivejournalIcon,
+  ViberIcon,
+  WorkplaceIcon,
+  LineIcon,
+  PocketIcon,
+  InstapaperIcon,
+  WeiboIcon
+} from "react-share";
 
 const styles = {
   card: {},
@@ -14,6 +62,9 @@ export default class Home extends Component {
 
   render() {
     const { users } = this.props;
+    const shareUrl = "http://www.merci.fr";
+    const title = "Merci";
+
     return (
       <div
         style={{
@@ -49,19 +100,9 @@ export default class Home extends Component {
             Merci Personnel Soignant
           </h1>
           <div style={{ textAlign: "center" }}>
-            <button
-              type="button"
-              style={{
-                borderRadius: 10,
-                border: "white",
-                backgroundColor: "lightblue",
-                padding: 10,
-                fontWeight: "bold",
-                boxShadow: "1px 1px 12px black"
-              }}
-            >
+            <a class="btn btn-primary" href="/message" role="button">
               Laissez un message d'encouragement
-            </button>
+            </a>
           </div>
         </div>
         <div
@@ -98,11 +139,47 @@ export default class Home extends Component {
                     fontSize: 12
                   }}
                 >
-                  22/04/2020 à 13h53
+                  {user.date}
                 </div>
                 <div style={{ padding: 20 }}>
                   <h5 style={styles.pseudo_card}>{user.pseudo}</h5>
                   <p>{user.message}</p>
+                </div>
+                <div className="Demo__some-network">
+                  <FacebookShareButton
+                    url={shareUrl}
+                    quote={title}
+                    className="Demo__some-network__share-button"
+                  >
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+                </div>
+                <div className="Demo__some-network">
+                  <TwitterShareButton
+                    url={shareUrl}
+                    quote={title}
+                    className="Demo__some-network__share-button"
+                  >
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                </div>
+                <div className="Demo__some-network">
+                  <LinkedinShareButton
+                    url={shareUrl}
+                    quote={title}
+                    className="Demo__some-network__share-button"
+                  >
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+                </div>
+                <div className="Demo__some-network">
+                  <WhatsappShareButton
+                    url={shareUrl}
+                    quote={title}
+                    className="Demo__some-network__share-button"
+                  >
+                    <WhatsappIcon size={32} round />
+                  </WhatsappShareButton>
                 </div>
               </div>
             </div>
