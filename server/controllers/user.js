@@ -8,16 +8,16 @@ exports.sendMessage = (req, res) => {
     email: req.body.email,
     pseudo: req.body.pseudo,
     message: req.body.message,
-    date: moment().format("Do MMMM YYYY, h:mm:ss a")
+    date: moment().format("LLL"),
   });
   user
     .save()
     .then(() => res.status(201).json({ message: "Message envoyé !" }))
-    .catch(error => res.status(400).json({ error }));
+    .catch((error) => res.status(400).json({ error }));
 };
 
 exports.getMessage = (req, res, next) => {
   User.find()
-    .then(user => res.status(200).json(user))
-    .catch(error => res.status(400).json({ error }));
+    .then((user) => res.status(200).json(user))
+    .catch((error) => res.status(400).json({ error }));
 };

@@ -8,13 +8,13 @@ import {
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
-  WhatsappIcon
+  WhatsappIcon,
 } from "react-share";
-import Background from "../../assets/images/b.jpg";
+import Background from "../../assets/images/team-doctor.jpg";
 
 const styles = {
   card: {},
-  pseudo_card: {}
+  pseudo_card: {},
 };
 
 export default class Home extends Component {
@@ -31,63 +31,79 @@ export default class Home extends Component {
     return (
       <div
         style={{
-          backgroundColor: "rgb(226, 226, 226, 0.7)",
-          margin: 0
+          backgroundColor: "rgb(226, 226, 226, 0.3)",
+          margin: 0,
         }}
       >
         <ToastContainer autoClose={3000} hideProgressBar />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            padding: 10,
-            fontSize: 20
-          }}
-        >
-          {users.length} Messages 🙏
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            padding: 10,
-            fontSize: 20
-          }}
-        >
-          {users.length} Messages 🙏
-        </div>
+
         <div
           style={{
             backgroundImage: `url(${Background})`,
             backgroundSize: "cover",
             height: "40vh",
-            marginTop: 30
+            // marginTop: 30,
+            display: "grid",
+            gridTemplateColumns: "100%",
+            alignItems: "center",
+            justifyItems: "center",
           }}
         >
-          <h1
+          <div
             style={{
-              textAlign: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              borderRadius: 10,
+              padding: 10,
+              color: "white",
               fontFamily: "Roboto Condensed",
-              color: "lightgray"
             }}
           >
-            Merci Personnel Soignant
-          </h1>
-          <div style={{ textAlign: "center" }}>
-            <a className="btn btn-primary" href="/message" role="button">
+            <h1
+              style={{
+                textAlign: "center",
+              }}
+            >
+              Merci Personnel Soignant
+            </h1>
+            <p style={{ textAlign: "center" }}>
+              Une initiative pour valoriser l'effort du cadre médical <br></br>
+              et établir une connexion solidaire entre nous en ces temps
+              difficiles.
+            </p>
+          </div>
+          <div>
+            <a
+              className="btn btn-light"
+              href="/message"
+              role="button"
+              style={{ fontFamily: "Roboto Condensed" }}
+            >
               Laissez un message d'encouragement
             </a>
           </div>
         </div>
         <div
           style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: 10,
+            fontSize: 20,
+            fontFamily: "Roboto Condensed",
+            color: "white",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          {users.length} Messages 🙏
+        </div>
+        <div
+          style={{
             margin: "2% 20px",
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
-          {users.map(user => (
+          {users.map((user) => (
             <div
               style={{
                 backgroundColor: "white",
@@ -99,7 +115,8 @@ export default class Home extends Component {
                 borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
                   .toString(16)
                   .substr(1, 6)} solid`,
-                marginLeft: 5
+                marginLeft: 5,
+                fontFamily: "Roboto Condensed",
               }}
               key={user.pseudo}
             >
@@ -110,7 +127,7 @@ export default class Home extends Component {
                     justifyContent: "flex-end",
                     padding: 5,
                     color: "#D3D5D3",
-                    fontSize: 12
+                    fontSize: 12,
                   }}
                 >
                   {user.date}
@@ -125,7 +142,7 @@ export default class Home extends Component {
                     gridTemplateColumns: "13% 13% 13% 13%",
                     justifyContent: "end",
                     marginRight: 10,
-                    marginBottom: 10
+                    marginBottom: 10,
                   }}
                 >
                   <div className="Demo__some-network">
@@ -174,7 +191,8 @@ export default class Home extends Component {
             backgroundColor: "#1C74F4",
             padding: 20,
             color: "white",
-            textAlign: "center"
+            textAlign: "center",
+            fontFamily: "Roboto Condensed",
           }}
         >
           © Développé par{" "}
