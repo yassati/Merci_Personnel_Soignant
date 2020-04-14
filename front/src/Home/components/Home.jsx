@@ -10,7 +10,7 @@ import {
   LinkedinIcon,
   WhatsappIcon
 } from "react-share";
-import Background from "../../assets/images/background.png";
+import Background from "../../assets/images/b.jpg";
 
 const styles = {
   card: {},
@@ -59,6 +59,7 @@ export default class Home extends Component {
         <div
           style={{
             backgroundImage: `url(${Background})`,
+            backgroundSize: "cover",
             height: "40vh",
             marginTop: 30
           }}
