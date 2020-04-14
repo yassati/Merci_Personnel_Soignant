@@ -13,7 +13,7 @@ export default class MyApp extends App {
     return (
       <div>
         <Head>
-          <title>MERCI</title>
+          <title>MERCI Personnel Soignant</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -27,6 +27,11 @@ export default class MyApp extends App {
           <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            href={require("../src/assets/images/favicon.png")}
           />
         </Head>
         <style jsx global>{`
