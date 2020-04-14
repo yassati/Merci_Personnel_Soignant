@@ -49,23 +49,14 @@ export default class Home extends Component {
           style={{
             backgroundImage: `url(${Background})`,
             backgroundSize: "cover",
-            height: "40vh",
-            // marginTop: 30,
+            padding: 30,
             display: "grid",
             gridTemplateColumns: "100%",
             alignItems: "center",
             justifyItems: "center"
           }}
         >
-          <div
-            style={{
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-              borderRadius: 10,
-              padding: 10,
-              color: "white",
-              fontFamily: "Roboto Condensed"
-            }}
-          >
+          <div className="bloc_header_title">
             <h1
               style={{
                 textAlign: "center"
@@ -74,8 +65,8 @@ export default class Home extends Component {
               Merci Personnel Soignant
             </h1>
             <p style={{ textAlign: "center" }}>
-              Une initiative pour valoriser l'effort du cadre médical <br></br>
-              et établir une connexion solidaire entre nous en ces temps
+              Une initiative pour valoriser l'effort du cadre médical et établir
+              <br></br> une connexion solidaire entre nous en ces temps
               difficiles.
             </p>
           </div>
@@ -104,27 +95,21 @@ export default class Home extends Component {
           {users.length} Messages 🙏
         </div>
         <div
-          style={{
-            margin: "2% 20px",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center"
-          }}
+          className="container_message_card"
+          // style={{
+          //   margin: "2% 20px",
+          //   display: "flex",
+          //   flexWrap: "wrap",
+          //   justifyContent: "center",
+          // }}
         >
           {currentPosts.map(user => (
             <div
+              className="card_message"
               style={{
-                backgroundColor: "white",
-                width: "23vw",
-                borderRadius: 3,
-                margin: "10px 20px",
-                backgroundColor: "#FDFDFD",
-                boxShadow: "1px 1px 12px #555",
                 borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
                   .toString(16)
-                  .substr(1, 6)} solid`,
-                marginLeft: 5,
-                fontFamily: "Roboto Condensed"
+                  .substr(1, 6)} solid`
               }}
               key={user.pseudo}
             >
@@ -193,6 +178,8 @@ export default class Home extends Component {
               </div>
             </div>
           ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <Pagination
             postsPerPage={this.state.postsPerPage}
             totalPosts={users.length}

@@ -2,18 +2,35 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
-
+import "./Home.css";
 export default class MyApp extends App {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isMobile: null
+    };
+
+    this.updatePredicate = this.updatePredicate.bind(this);
+  }
+  componentDidMount() {
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate() {
+    console.log("window.innerWidth", window.innerWidth);
+    this.setState({ isMobile: window.innerWidth < 760 });
   }
   render() {
     const { Component, pageProps } = this.props;
     return (
       <div>
         <Head>
-          <title>MERCI</title>
+          <title>MERCI Personnel Soignant</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -27,6 +44,11 @@ export default class MyApp extends App {
           <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            href={require("../src/assets/images/favicon.png")}
           />
         </Head>
         <style jsx global>{`
@@ -54,7 +76,7 @@ export default class MyApp extends App {
         `}</style>
         <div id="outer-container">
           <main id="page-wrap">
-            <Component {...pageProps} />
+            <Component {...pageProps} isMobile={this.state.isMobile} />
           </main>
         </div>
       </div>

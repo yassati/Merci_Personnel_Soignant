@@ -3,8 +3,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { toast } from "react-toastify";
-import Router, { withRouter } from "next/router";
+import Router from "next/router";
 import Banniere_message from "../../assets/images/banniere_message.png";
+import Back from "../../assets/images/back.png";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -39,6 +40,16 @@ class NewsletterConponent extends React.Component {
             border-color: red;
           }
         `}</style>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "start"
+          }}
+        >
+          <a href={"/"}>
+            <img src={Back} width="30px" alt="back" />
+          </a>
+        </div>
         <div
           style={{
             display: "flex",
@@ -100,7 +111,7 @@ class NewsletterConponent extends React.Component {
                     <input
                       type="text"
                       id="email"
-                      placeholder="email"
+                      placeholder="Email"
                       style={styles.input}
                       value={values.email}
                       onChange={handleChange}
@@ -124,7 +135,7 @@ class NewsletterConponent extends React.Component {
                       type="text"
                       id="message"
                       style={styles.textarea}
-                      placeholder="message"
+                      placeholder="Message"
                       value={values.message}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -168,23 +179,23 @@ const styles = {
     opacity: 1
   },
   myContainerMobile: {
+    backgroundColor: "white",
     width: "auto",
     marginRight: "16px",
     marginLeft: "16px",
-    background: "white",
-    backgroundColor: "white",
-    paddingBottom: "40px"
+    paddingBottom: "40px",
+    paddingTop: "40px"
   },
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
-    // width: "200px",
     backgroundColor: "#3B7210"
   },
   input: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     height: 40,
+    width: "40%",
     margin: 10
   },
   textarea: {
@@ -205,10 +216,13 @@ export default class Newsletter extends React.Component {
   }
 
   render() {
+    const styleContainer = this.props.isMobile
+      ? styles.myContainerMobile
+      : styles.myContainerDesktop;
     return (
       <div>
         <div style={{ height: "12vh" }} />
-        <div style={styles.myContainerDesktop}>
+        <div style={styleContainer}>
           <NewsletterConponent />
         </div>
       </div>

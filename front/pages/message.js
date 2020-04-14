@@ -5,7 +5,7 @@ import fetch from "isomorphic-unfetch";
 export default function Index(props) {
   return (
     <div>
-      <Message />
+      <Message isMobile={props.isMobile} />
     </div>
   );
 }
