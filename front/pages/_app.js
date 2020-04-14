@@ -1,6 +1,7 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
+import "react-toastify/dist/ReactToastify.css";
 
 export default class MyApp extends App {
   constructor(props) {
