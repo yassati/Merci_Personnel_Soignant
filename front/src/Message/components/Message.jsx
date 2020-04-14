@@ -21,15 +21,15 @@ class NewsletterConponent extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "application/json"
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
       .then(() => {
         Router.push("/");
         toast.success("Message envoyé !");
       })
-      .catch((errors) => res.status(400).json({ errors }));
+      .catch(errors => res.status(400).json({ errors }));
   }
 
   render() {
@@ -43,20 +43,18 @@ class NewsletterConponent extends React.Component {
         <div
           style={{
             display: "flex",
-            justifyContent: "start",
+            justifyContent: "start"
           }}
         >
-          {/* <a href={"/"}> */}
-          <div onClick={() => Router.push("/")}>
+          <a href={"/"}>
             <img src={Back} width="30px" alt="back" />
-          </div>
-          {/* </a> */}
+          </a>
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: 15,
+            marginBottom: 15
           }}
         >
           <img src={Banniere_message} width="30%" alt="banniere_message" />
@@ -73,10 +71,10 @@ class NewsletterConponent extends React.Component {
               email: Yup.string()
                 .email("L'email n'est pas valide")
                 .required("Nécessaire"),
-              message: Yup.string().required("Nécessaire"),
+              message: Yup.string().required("Nécessaire")
             })}
           >
-            {(props) => {
+            {props => {
               const {
                 values,
                 touched,
@@ -84,7 +82,7 @@ class NewsletterConponent extends React.Component {
                 isSubmitting,
                 handleChange,
                 handleBlur,
-                handleSubmit,
+                handleSubmit
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
@@ -92,7 +90,7 @@ class NewsletterConponent extends React.Component {
                     style={{
                       display: "flex",
                       justifyContent: "center",
-                      flexWrap: "wrap",
+                      flexWrap: "wrap"
                     }}
                   >
                     <input
@@ -130,7 +128,7 @@ class NewsletterConponent extends React.Component {
                       display: "flex",
                       justifyContent: "center",
                       marginBottom: 30,
-                      height: "20vh",
+                      height: "20vh"
                     }}
                   >
                     <textarea
@@ -178,35 +176,34 @@ const styles = {
     marginLeft: "25vw",
     boxShadow: "-1px 3px 6px #00000029",
     borderRadius: "33px",
-    opacity: 1,
+    opacity: 1
   },
   myContainerMobile: {
     backgroundColor: "white",
-    borderRadius: 33,
     width: "auto",
     marginRight: "16px",
     marginLeft: "16px",
     paddingBottom: "40px",
-    paddingTop: "40px",
+    paddingTop: "40px"
   },
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
-    backgroundColor: "#3B7210",
+    backgroundColor: "#3B7210"
   },
   input: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     height: 40,
     width: "40%",
-    margin: 10,
+    margin: 10
   },
   textarea: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     width: "85%",
-    resize: "none",
-  },
+    resize: "none"
+  }
 };
 
 export default class Newsletter extends React.Component {
