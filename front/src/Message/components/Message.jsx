@@ -189,7 +189,6 @@ const styles = {
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
-    // width: "200px",
     backgroundColor: "#3B7210"
   },
   input: {
