@@ -23,7 +23,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      postsPerPage: 6
+      postsPerPage: 9
     };
   }
 
