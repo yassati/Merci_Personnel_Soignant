@@ -3,8 +3,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { toast } from "react-toastify";
-import Router, { withRouter } from "next/router";
+import Router from "next/router";
 import Banniere_message from "../../assets/images/banniere_message.png";
+import Back from "../../assets/images/back.png";
 
 class NewsletterConponent extends React.Component {
   /**
@@ -39,6 +40,16 @@ class NewsletterConponent extends React.Component {
             border-color: red;
           }
         `}</style>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "start"
+          }}
+        >
+          <a href={"/"}>
+            <img src={Back} width="30px" alt="back" />
+          </a>
+        </div>
         <div
           style={{
             display: "flex",
