@@ -1,53 +1,16 @@
 import React, { Component } from "react";
 import { ToastContainer } from "react-toastify";
 import {
-  FacebookShareCount,
-  PinterestShareCount,
-  VKShareCount,
-  OKShareCount,
-  RedditShareCount,
-  TumblrShareCount,
   FacebookShareButton,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
   LinkedinShareButton,
   TwitterShareButton,
-  PinterestShareButton,
-  VKShareButton,
-  OKShareButton,
-  TelegramShareButton,
   WhatsappShareButton,
-  RedditShareButton,
-  EmailShareButton,
-  TumblrShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  ViberShareButton,
-  WorkplaceShareButton,
-  LineShareButton,
-  WeiboShareButton,
-  PocketShareButton,
-  InstapaperShareButton,
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
-  PinterestIcon,
-  VKIcon,
-  OKIcon,
-  TelegramIcon,
-  WhatsappIcon,
-  RedditIcon,
-  TumblrIcon,
-  MailruIcon,
-  EmailIcon,
-  LivejournalIcon,
-  ViberIcon,
-  WorkplaceIcon,
-  LineIcon,
-  PocketIcon,
-  InstapaperIcon,
-  WeiboIcon
+  WhatsappIcon
 } from "react-share";
+import Background from "../../assets/images/b.jpg";
 
 const styles = {
   card: {},
@@ -85,7 +48,18 @@ export default class Home extends Component {
         </div>
         <div
           style={{
-            background: "red",
+            display: "flex",
+            justifyContent: "flex-start",
+            padding: 10,
+            fontSize: 20
+          }}
+        >
+          {users.length} Messages 🙏
+        </div>
+        <div
+          style={{
+            backgroundImage: `url(${Background})`,
+            backgroundSize: "cover",
             height: "40vh",
             marginTop: 30
           }}
@@ -100,7 +74,7 @@ export default class Home extends Component {
             Merci Personnel Soignant
           </h1>
           <div style={{ textAlign: "center" }}>
-            <a class="btn btn-primary" href="/message" role="button">
+            <a className="btn btn-primary" href="/message" role="button">
               Laissez un message d'encouragement
             </a>
           </div>
@@ -122,9 +96,9 @@ export default class Home extends Component {
                 margin: "10px 20px",
                 backgroundColor: "#FDFDFD",
                 boxShadow: "1px 1px 12px #555",
-                borderLeft: `5px #${Math.floor(
-                  Math.random() * 16777215
-                ).toString(16)} solid`,
+                borderLeft: `5px #${(0x1000000 + Math.random() * 0xffffff)
+                  .toString(16)
+                  .substr(1, 6)} solid`,
                 marginLeft: 5
               }}
               key={user.pseudo}
@@ -145,41 +119,51 @@ export default class Home extends Component {
                   <h5 style={styles.pseudo_card}>{user.pseudo}</h5>
                   <p>{user.message}</p>
                 </div>
-                <div className="Demo__some-network">
-                  <FacebookShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <FacebookIcon size={32} round />
-                  </FacebookShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <TwitterShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <TwitterIcon size={32} round />
-                  </TwitterShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <LinkedinShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <LinkedinIcon size={32} round />
-                  </LinkedinShareButton>
-                </div>
-                <div className="Demo__some-network">
-                  <WhatsappShareButton
-                    url={shareUrl}
-                    quote={title}
-                    className="Demo__some-network__share-button"
-                  >
-                    <WhatsappIcon size={32} round />
-                  </WhatsappShareButton>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "13% 13% 13% 13%",
+                    justifyContent: "end",
+                    marginRight: 10,
+                    marginBottom: 10
+                  }}
+                >
+                  <div className="Demo__some-network">
+                    <FacebookShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <TwitterShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <LinkedinShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
+                  </div>
+                  <div className="Demo__some-network">
+                    <WhatsappShareButton
+                      url={shareUrl}
+                      quote={title}
+                      className="Demo__some-network__share-button"
+                    >
+                      <WhatsappIcon size={32} round />
+                    </WhatsappShareButton>
+                  </div>
                 </div>
               </div>
             </div>
