@@ -12,6 +12,7 @@ import {
 } from "react-share";
 import Background from "../../assets/images/b.jpg";
 
+import Logo from "../../assets/images/logo.jpeg";
 const styles = {
   card: {},
   pseudo_card: {}
@@ -40,16 +41,6 @@ export default class Home extends Component {
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            padding: 10,
-            fontSize: 20
-          }}
-        >
-          {users.length} Messages 🙏
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
             padding: 10,
             fontSize: 20
           }}

@@ -20,15 +20,15 @@ class NewsletterConponent extends React.Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "application/json"
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
       .then(() => {
         Router.push("/");
         toast.success("Message envoyé !");
       })
-      .catch((errors) => res.status(400).json({ errors }));
+      .catch(errors => res.status(400).json({ errors }));
   }
 
   render() {
@@ -49,10 +49,10 @@ class NewsletterConponent extends React.Component {
               email: Yup.string()
                 .email("L'email n'est pas valide")
                 .required("Nécessaire"),
-              message: Yup.string().required("Nécessaire"),
+              message: Yup.string().required("Nécessaire")
             })}
           >
-            {(props) => {
+            {props => {
               const {
                 values,
                 touched,
@@ -60,7 +60,7 @@ class NewsletterConponent extends React.Component {
                 isSubmitting,
                 handleChange,
                 handleBlur,
-                handleSubmit,
+                handleSubmit
               } = props;
               return (
                 <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ class NewsletterConponent extends React.Component {
                       gridTemplateColumns: "40% 40%",
                       gridGap: 25,
                       justifyContent: "center",
-                      marginBottom: 25,
+                      marginBottom: 25
                     }}
                   >
                     <input
@@ -108,7 +108,7 @@ class NewsletterConponent extends React.Component {
                       display: "flex",
                       justifyContent: "center",
                       marginBottom: 30,
-                      height: "20vh",
+                      height: "20vh"
                     }}
                   >
                     <textarea
@@ -159,7 +159,7 @@ const styles = {
     marginLeft: "25vw",
     boxShadow: "-1px 3px 6px #00000029",
     borderRadius: "33px",
-    opacity: 1,
+    opacity: 1
   },
   myContainerMobile: {
     width: "auto",
@@ -167,25 +167,25 @@ const styles = {
     marginLeft: "16px",
     background: "white",
     backgroundColor: "white",
-    paddingBottom: "40px",
+    paddingBottom: "40px"
   },
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
     width: "200px",
-    backgroundColor: "#3B7210",
+    backgroundColor: "#3B7210"
   },
   input: {
     border: "none",
     borderBottom: "3px solid #3B7210",
-    height: 40,
+    height: 40
   },
   textarea: {
     border: "none",
     borderBottom: "3px solid #3B7210",
     width: "85%",
-    resize: "none",
-  },
+    resize: "none"
+  }
 };
 
 export default class Newsletter extends React.Component {
