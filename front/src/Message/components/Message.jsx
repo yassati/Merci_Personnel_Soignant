@@ -17,7 +17,7 @@ class NewsletterConponent extends React.Component {
   }
 
   async onSubmit(values) {
-    let response = await fetch("http://localhost:4000/api/send", {
+    let response = await fetch("https://merci-medecin.herokuapp.com/api/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
