@@ -72,12 +72,14 @@ export default class Home extends Component {
             </p>
           </div>
           <div>
-            <div
-              style={{ fontFamily: "Roboto Condensed" }}
-              className="btn btn-light"
-              onClick={() => Router.push("/message")}
-            >
-              Laissez un message d'encouragement
+            <div>
+              <button
+                style={{ fontFamily: "Roboto Condensed" }}
+                onClick={() => Router.push("/message")}
+                className="btn btn-light"
+              >
+                Laissez un message d'encouragement
+              </button>
             </div>
           </div>
         </div>

@@ -104,8 +104,8 @@ class NewsletterConponent extends React.Component {
                       autoComplete="off"
                       className={
                         errors.pseudo && touched.pseudo
-                          ? "ant-input ant-input-lg error"
-                          : "ant-input ant-input-lg"
+                          ? "ant-input ant-input-lg error form-control"
+                          : "ant-input ant-input-lg form-control"
                       }
                     ></input>
                     <input
@@ -118,8 +118,8 @@ class NewsletterConponent extends React.Component {
                       onBlur={handleBlur}
                       className={
                         errors.email && touched.email
-                          ? "ant-input ant-input-lg error"
-                          : "ant-input ant-input-lg"
+                          ? "ant-input ant-input-lg error form-control"
+                          : "ant-input ant-input-lg form-control"
                       }
                     ></input>
                   </div>
@@ -141,21 +141,20 @@ class NewsletterConponent extends React.Component {
                       onBlur={handleBlur}
                       className={
                         errors.message && touched.message
-                          ? "ant-input ant-input-lg error"
-                          : "ant-input ant-input-lg"
+                          ? "ant-input ant-input-lg error form-control"
+                          : "ant-input ant-input-lg form-control"
                       }
                     ></textarea>
                   </div>
                   <div className={"col text-center"}>
-                    <span
+                    <button
                       type="submit"
                       onClick={handleSubmit}
                       disabled={isSubmitting}
+                      className="btn btn-success"
                     >
-                      <div style={{}} className="btn btn-success">
-                        Envoyer
-                      </div>
-                    </span>
+                      Envoyer
+                    </button>
                   </div>
                 </form>
               );
@@ -192,15 +191,11 @@ const styles = {
     backgroundColor: "#3B7210"
   },
   input: {
-    border: "none",
-    borderBottom: "3px solid #3B7210",
     height: 40,
-    width: "40%",
-    margin: 10
+    width: "41%",
+    margin: "1.5%"
   },
   textarea: {
-    border: "none",
-    borderBottom: "3px solid #3B7210",
     width: "85%",
     resize: "none"
   }
