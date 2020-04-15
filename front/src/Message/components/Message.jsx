@@ -33,6 +33,9 @@ class NewsletterConponent extends React.Component {
   }
 
   render() {
+    const styleInput = this.props.isMobile
+      ? styles.inputMobile
+      : styles.inputDeskTop;
     return (
       <div style={{ padding: "5%" }}>
         <style jsx>{`
@@ -96,8 +99,8 @@ class NewsletterConponent extends React.Component {
                     <input
                       type="text"
                       id="pseudo"
-                      placeholder="Pseudo"
-                      style={styles.input}
+                      placeholder="Nom Prénom"
+                      style={styleInput}
                       value={values.pseudo}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -112,7 +115,7 @@ class NewsletterConponent extends React.Component {
                       type="text"
                       id="email"
                       placeholder="Email"
-                      style={styles.input}
+                      style={styleInput}
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -183,16 +186,22 @@ const styles = {
     marginRight: "16px",
     marginLeft: "16px",
     paddingBottom: "40px",
-    paddingTop: "40px"
+    paddingTop: "40px",
+    borderRadius: "33px"
   },
   buttonSubmit: {
     height: 30,
     borderRadius: 10,
     backgroundColor: "#3B7210"
   },
-  input: {
+  inputDeskTop: {
     height: 40,
     width: "41%",
+    margin: "1.5%"
+  },
+  inputMobile: {
+    height: 40,
+    width: "85%",
     margin: "1.5%"
   },
   textarea: {
@@ -214,11 +223,12 @@ export default class Newsletter extends React.Component {
     const styleContainer = this.props.isMobile
       ? styles.myContainerMobile
       : styles.myContainerDesktop;
+
     return (
       <div>
-        <div style={{ height: "12vh" }} />
+        <div style={{ height: this.props.isMobile ? "6vh" : "10vh" }} />
         <div style={styleContainer}>
-          <NewsletterConponent />
+          <NewsletterConponent isMobile={this.props.isMobile} />
         </div>
       </div>
     );
