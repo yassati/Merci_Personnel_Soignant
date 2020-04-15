@@ -44,7 +44,7 @@ const Index = props => (
 );
 
 Index.getInitialProps = async function() {
-  const res = await fetch("http://localhost:4000/api/message");
+  const res = await fetch("https://merci-medecin.herokuapp.com/api/message");
   const data = await res.json();
 
   return {

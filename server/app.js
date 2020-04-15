@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const userRoutes = require("./router/user");
 const path = require("path");
+const cors = require("cors");
 const app = express();
 
 mongoose
@@ -29,5 +30,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use("/api", userRoutes);
+app.use(cors());
 
 module.exports = app;
