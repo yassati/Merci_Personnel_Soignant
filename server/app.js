@@ -8,7 +8,7 @@ const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://wadia60:ghomrassen@merci0-2bkgf.mongodb.net/test?retryWrites=true&w=majority",
+    "mongoDB login",
 
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
