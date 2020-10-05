@@ -1,23 +1,8 @@
 import Home from "../src/Home/components/Home";
-import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
 const Index = props => (
   <div>
-    <Head>
-      <title>MERCI</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossOrigin="anonymous"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-        rel="stylesheet"
-      />
-    </Head>
     <style jsx global>{`
       @media (max-width: 480px) {
         iframe {

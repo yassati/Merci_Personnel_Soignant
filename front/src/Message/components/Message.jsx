@@ -60,7 +60,11 @@ class NewsletterConponent extends React.Component {
             marginBottom: 15
           }}
         >
-          <img src={Banniere_message} width="30%" alt="banniere_message" />
+          <img
+            src={Banniere_message}
+            style={{ width: "30%", height: "30%" }}
+            alt="banniere_message"
+          />
         </div>
         <h4 style={{ textAlign: "center", margin: "0 10%" }}>
           Offrez un message d'encouragement au personnel de santé !

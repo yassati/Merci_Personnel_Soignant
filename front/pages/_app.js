@@ -1,8 +1,10 @@
 import React from "react";
 import App from "next/app";
 import Head from "next/head";
+import { DefaultSeo } from "next-seo";
 import "react-toastify/dist/ReactToastify.css";
 import "./Home.css";
+
 export default class MyApp extends App {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ export default class MyApp extends App {
     return (
       <div>
         <Head>
-          <title>MERCI Personnel Soignant</title>
+          <title>Merci Personnel soignant</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -51,6 +53,19 @@ export default class MyApp extends App {
             href={require("../src/assets/images/favicon.png")}
           />
         </Head>
+        <DefaultSeo
+          title="Merci personnel soignant"
+          description="Une initiative pour valoriser l'effort du cadre médical et établir une connexion solidaire entre nous en ces temps difficiles."
+          openGraph={{
+            title: "Merci Personnel soignant",
+            type: "website",
+            locale: "en_IE",
+            url: "https://mercipersonnelsoignant.fr",
+            description:
+              "Une initiative pour valoriser l'effort du cadre médical et établir une connexion solidaire entre nous en ces temps difficiles.",
+            site_name: "Merci personnel soignant"
+          }}
+        />
         <style jsx global>{`
           @media (max-width: 480px) {
             iframe {

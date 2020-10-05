@@ -11,7 +11,7 @@ import {
   LinkedinIcon,
   WhatsappIcon
 } from "react-share";
-import Background from "../../assets/images/team-doctor.jpg";
+import Background from "../../assets/images/team-doctor.jpeg";
 import Router from "next/router";
 const styles = {
   card: {},
@@ -33,7 +33,6 @@ export default class Home extends Component {
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
     const paginate = pageNumber => this.setState({ currentPage: pageNumber });
-
     const shareUrl = "https://www.mercipersonnelsoignant.fr";
     const title = "Offrez un message d'encouragement au personnel de santé !";
 
@@ -49,7 +48,6 @@ export default class Home extends Component {
             backgroundImage: `url(${Background})`,
             backgroundSize: "cover",
             padding: 15,
-            height: "50vh",
             display: "grid",
             gridTemplateColumns: "100%",
             alignItems: "center",
@@ -75,7 +73,10 @@ export default class Home extends Component {
           <div>
             <div>
               <button
-                style={{ fontFamily: "Roboto Condensed" }}
+                style={{
+                  fontFamily: "Roboto Condensed",
+                  boxShadow: "5px 5px 5px rgb(105,105,105)"
+                }}
                 onClick={() => Router.push("/message")}
                 className="btn btn-light"
               >
@@ -106,7 +107,7 @@ export default class Home extends Component {
                   .toString(16)
                   .substr(1, 6)} solid`
               }}
-              key={user.pseudo}
+              key={user._id}
             >
               <div>
                 <div
